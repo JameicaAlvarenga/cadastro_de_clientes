@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Custumer
 
-# Create your views here.
+
+class CustumerListView(ListView):
+    template_name = "custumer/custumer_list.html"
+    model = Custumer
+    queryset = Custumer.objects.all()
+
