@@ -1,10 +1,11 @@
 from django.db import models
 
+
 # Create your models here.
 class Custumer(models.Model):
     frist_name = models.CharField(max_length=38)
     last_name = models.CharField(max_length=50)
-    email=models.EmailField()
+    email = models.EmailField()
     brith_date = models.DateField()
     area_code = models.CharField(max_length=3)
     phone_number = models.CharField(max_length=9)
@@ -19,4 +20,13 @@ class Custumer(models.Model):
         return f"{self.frist_name}{self.last_name}"
 
 
+    def get_full_phone_number(self):
+        return f"({self.area_code}) {self.phone_number}"
 
+
+    def get_full_name(self):
+        return f"{self.frist_name} {self.last_name}"
+
+
+    def get_full_city(self):
+        return f"{self.city}-{self.state}"
